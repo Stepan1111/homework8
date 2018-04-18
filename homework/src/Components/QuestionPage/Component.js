@@ -20,12 +20,20 @@ const Description = styled.div`
   padding: 15px 0;
 `;
 
+const SortAnswers = styled.div`
+  display: flex;
+  flex: 1;
+  padding-top: 20px;
+`;
+
 const SortByDropdown = styled.select`
-  flex-basis: 20%;
+  border-style: none;
+  flex-basis: 15%;
   padding: 0 10px;
-  font-size: 16pt;
+  font-size: 14pt;
   background: #fff;
 `;
+
 
 const QuestionPage = ({ question, author, setSorting, dispatch, sortBy }) => (
   <Wrapper>
@@ -33,12 +41,15 @@ const QuestionPage = ({ question, author, setSorting, dispatch, sortBy }) => (
 
     <div>By: <strong>{author.profile.fullName}</strong></div>
     
-    <SortByDropdown value = {sortBy} onChange = {setSorting}>
-        <option value="createdAt">By date</option>
-        <option value="best">Best </option>
-        <option value="worst">Worst  </option>
-    </SortByDropdown>
-      
+    <SortAnswers>
+      <h3>Sort answers : </h3>
+      <SortByDropdown value = {sortBy} onChange = {setSorting}>
+          <option value = "createdAt"> by date</option>
+          <option value = "best"> best </option>
+          <option value = "worst"> worst  </option>
+      </SortByDropdown>
+    </SortAnswers>
+    
     <Description>{question.description}</Description>
 
     <AnswersList />
