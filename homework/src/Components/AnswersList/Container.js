@@ -6,6 +6,11 @@ import { connect } from 'react-redux';
 import AppLoader from '../Loaders/AppLoader';
 import Component from './Component';
 
+
+//***********
+// Made by Stepan Kuntsyo && Volodymyr Boichuk
+//***********
+
 const sortByTime = (a, b) => {
   if (a.createdAt.getTime() >= b.createdAt.getTime()) {
     return -1;
@@ -65,9 +70,9 @@ const enhance = compose(
     componentWillMount() {
       this.interval = db.pooling(async() => {
         const questionId = this.props.match.params.questionId;
-        
+
         const users = await db.users.find();
-        
+
         let answers = await db.answers.find();
         answers = answers.filter(answer => answer.questionId === questionId);
 

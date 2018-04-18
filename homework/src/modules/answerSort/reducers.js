@@ -8,7 +8,6 @@ export default function (state = defaultState, action){
   switch (action.type) {
     case sortType.SET_SORT:
         return {sortBy: action.value}
-        
     default:
       return state;
   }

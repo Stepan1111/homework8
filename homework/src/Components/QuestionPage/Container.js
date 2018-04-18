@@ -36,8 +36,12 @@ const enhance = compose(
   branch(({ question }) => !question, renderComponent(() => <Redirect to="/not-found" />))
 );
 
+const mapStateToProps = state => ({
+    sortBy: state.answerSort.sortBy,
+});
+
 const mapDispatchToProps = dispatch => ({
   setSorting: e => dispatch(setSort(e.target.value))
 });
 
-export default connect(undefined,mapDispatchToProps)(enhance(Component));
+export default connect(mapStateToProps,mapDispatchToProps)(enhance(Component));

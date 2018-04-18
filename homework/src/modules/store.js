@@ -6,6 +6,6 @@ import reducer from './';
 
 const store = createStore(reducer, undefined, composeWithDevTools(autoRehydrate()));
 
-persistStore(store, { whitelist: ['user'] });
+persistStore(store, { whitelist: ['user','answerSort'] });
 
 export default store;
