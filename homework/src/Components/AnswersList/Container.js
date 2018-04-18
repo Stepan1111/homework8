@@ -7,10 +7,6 @@ import AppLoader from '../Loaders/AppLoader';
 import Component from './Component';
 
 
-//***********
-// Made by Stepan Kuntsyo && Volodymyr Boichuk
-//***********
-
 const sortByTime = (a, b) => {
   if (a.createdAt.getTime() >= b.createdAt.getTime()) {
     return -1;
